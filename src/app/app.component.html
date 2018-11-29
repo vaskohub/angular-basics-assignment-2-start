@@ -1,0 +1,37 @@
+<ol>
+  <li>
+    Add a Input field which updates a property ('username') via Two-Way-Binding
+  </li>
+  <li>
+    Output the username property via String Interpolation (in a paragraph below the input)
+  </li>
+  <li>
+    Add a button which may only be clicked if the username is NOT an empty string
+  </li>
+  <li>
+    Upon clicking the button, the username should be reset to an empty string
+  </li>
+</ol>
+<div class="container">
+  <div class="form-group">
+    <div class="row">
+      <label for="username">Access Control</label>
+      <input [(ngModel)]="username" type="text" class="form-control" id="username" placeholder="Username">
+      <small id="helpId" class="form-text text-muted" [ngClass]="{'hide': username.length === 0 }">
+        You entered:
+        <b>{{username}}</b>
+      </small>
+    </div>
+    <div class="row">
+      <hr>
+      <div class="btn-group" role="group" aria-label>
+        <button type="button" class="btn btn-primary" [ngClass]="{'disabled': username.length === 0 }" (click)="showMsgClickEventHandler()">
+          Show Message
+        </button>
+        <button type="button" class="btn btn-primary" (click)="resetClickEventHandler()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
